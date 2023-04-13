@@ -106,6 +106,39 @@ class LinkedList {
     result += 'null';
     return result;
   }
+
+  insertAt(value, index) {
+    let prev = null;
+    let tmp = this.head;
+    let currentIndex = 0;
+
+    while (tmp !== null) {
+      currentIndex++;
+
+      prev = tmp;
+      tmp = tmp.next;
+
+      if (currentIndex === index) {
+        prev.next = new Node(value, tmp);
+      }
+    }
+  }
+
+  remove(index) {
+    let prev = null;
+    let tmp = this.head;
+    let currentIndex = 0;
+
+    while (tmp !== null) {
+      prev = tmp;
+      tmp = tmp.next;
+
+      currentIndex++;
+      if (index === currentIndex) {
+        prev.next = tmp.next;
+      }
+    }
+  }
 }
 
 class Node {
